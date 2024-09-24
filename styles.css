@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #D72D64;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.button, .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #BBD94E;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover, .back-button:hover {
+    background-color: #BBD94E;
+}
+
+.back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
+
+
+.image-types {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.image-type {
+    text-align: center;
+    margin: 10px;
+    flex: 1 1 200px;
+}
+
+.small-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.edited-svg {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.large-svg {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .image-types {
+        flex-direction: column;
+    }
+
+    .image-type {
+        margin-bottom: 20px;
+    }
+}
+
+/* Стилі для CSS анімації (куб) */
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    margin: 80px auto;
+    transform-style: preserve-3d;
+    animation: rotate 10s infinite linear;
+}
+
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(249, 41, 111, 0.826);
+    border: 2px solid #BBD94E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.front  { transform: translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotate {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Стилі для JS анімації (канвас) */
+#animationCanvas {
+    border: 1px solid #D72D64;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Стилі для SVG анімації */
+svg {
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}

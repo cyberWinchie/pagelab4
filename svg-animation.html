@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Анімація - Полуничка</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SVG Анімація: Полуничка</h1>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+            <defs>
+                <radialGradient id="strawberryGradient" cx="50%" cy="60%" r="50%">
+                    <stop offset="0%" style="stop-color:#ff3366;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#cc0033;stop-opacity:1" />
+                </radialGradient>
+                <filter id="blur">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+                </filter>
+            </defs>
+            
+            <g transform="translate(100, 100) scale(1.8)">
+                <!-- Тіло полунички -->
+                <path fill="url(#strawberryGradient)" d="M0,-25 C-20,-25 -40,-10 -40,20 C-40,40 -20,50 0,55 C20,50 40,40 40,20 C40,-10 20,-25 0,-25 Z">
+                    <animate attributeName="d" 
+                            dur="2s"
+                            repeatCount="indefinite"
+                            values="M0,-25 C-20,-25 -40,-10 -40,20 C-40,40 -20,50 0,55 C20,50 40,40 40,20 C40,-10 20,-25 0,-25 Z;
+                                    M0,-23 C-18,-23 -38,-8 -38,22 C-38,42 -18,52 0,57 C18,52 38,42 38,22 C38,-8 18,-23 0,-23 Z;
+                                    M0,-25 C-20,-25 -40,-10 -40,20 C-40,40 -20,50 0,55 C20,50 40,40 40,20 C40,-10 20,-25 0,-25 Z"
+                            calcMode="spline"
+                            keySplines="0.42, 0, 0.58, 1; 0.42, 0, 0.58, 1"
+                    />
+                </path>
+                
+                <!-- Блік на полуничці -->
+                <ellipse fill="#ff99aa" cx="-15" cy="-5" rx="10" ry="7" opacity="0.3" filter="url(#blur)">
+                    <animate attributeName="opacity"
+                            dur="2s"
+                            repeatCount="indefinite"
+                            values="0.3;0.4;0.3"
+                            calcMode="spline"
+                            keySplines="0.42, 0, 0.58, 1; 0.42, 0, 0.58, 1"
+                    />
+                </ellipse>
+
+                <!-- Листочки -->
+                <g>
+                    <path fill="#00cc66" d="M-5,-25 Q-20,-40 0,-40 Q20,-40 5,-25 Q0,-30 -5,-25 Z" />
+                    <path fill="#00aa44" d="M5,-25 Q20,-35 10,-40 Q0,-45 -5,-25 Q0,-30 5,-25 Z" />
+                    <animateTransform attributeName="transform"
+                                    type="rotate"
+                                    from="-5 0 -25"
+                                    to="5 0 -25"
+                                    dur="2s"
+                                    repeatCount="indefinite"
+                                    additive="sum"
+                    />
+                </g>
+                
+                <!-- Насінинки -->
+                <g fill="#ffff99">
+                    <circle cx="-20" cy="10" r="1.5" />
+                    <circle cx="20" cy="10" r="1.5" />
+                    <circle cx="-10" cy="30" r="1.5" />
+                    <circle cx="10" cy="30" r="1.5" />
+                    <circle cx="0" cy="15" r="1.5" />
+                    <circle cx="-15" cy="-5" r="1.5" />
+                    <circle cx="15" cy="-5" r="1.5" />
+                    <circle cx="-5" cy="40" r="1.5" />
+                    <circle cx="5" cy="40" r="1.5" />
+                </g>
+            </g>
+        </svg>
+        <a href="index.html" class="back-button">Назад</a>
+    </div>
+</body>
+</html>
